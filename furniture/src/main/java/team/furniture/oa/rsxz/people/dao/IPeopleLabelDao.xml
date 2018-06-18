@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.furniture.oa.rsxz.people.dao.IPeopleLabelDao">
+	
+	<resultMap type="PeopleLabel" id="peopleLabelMap">
+		<id column="rid" property="rid"/>
+		<result column="rname" property="rname"/>
+		<result column="sex" property="sex"/>
+			<result column="number" property="number"/>
+				<result column="position" property="position"/>
+					
+	</resultMap>
+	
+
+	
+	<select id="selectCurrentPgaeSalesLabels" resultMap="peopleLabelMap">
+		select rid,rname,sex,number,position
+		from persons
+	</select>
+	
+		<delete id="deleteById">
+		delete from persons where rid=#{rid}
+	</delete>
+	
+	<update id="updateNewsLabel">
+		update persons
+		set rname=#{rname},sex=#{sex},number=#{number},position=#{position}
+		where rid=#{rid}
+	</update>
+	
+	<select id="selectNewsLabelById" resultMap="peopleLabelMap">
+		select rid,rname,sex,number,position
+		from persons
+		where rid=#{rid}
+	</select>
+	
+	<insert id="insertNewsLabel">
+		insert into persons(rname,sex,number,position)
+		values( #{rname}, #{sex},#{number},#{position})
+	</insert>
+	
+	
+	
+	
+</mapper>
