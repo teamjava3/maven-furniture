@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.furniture.oa.product.series.dao.ISeriesDao">
+	
+	<resultMap type="Product" id="productMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="information" property="information"/>
+					
+	</resultMap>
+	
+	
+	
+	<select id="selectCurrentPgaeSalesLabels" resultMap="productMap">
+		select id,name,information
+		from series
+	</select>
+	
+		<delete id="deleteById">
+		delete from series where id=#{id}
+	</delete>
+	
+	<update id="updateNewsLabel">
+		update series
+		set name=#{name},information=#{information}
+		where id=#{id}
+	</update>
+	
+	<select id="selectNewsLabelById" resultMap="productMap">
+		select id,name,information
+		from series
+		where id=#{id}
+	</select>
+	
+	<insert id="insertNewsLabel">
+		insert into series(name,information)
+		values( #{name}, #{information})
+	</insert>
+	
+	
+	
+	
+</mapper>
