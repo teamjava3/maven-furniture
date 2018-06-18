@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="team.furniture.oa.xtsz.branch.dao.IBranchLabelDao">
+	
+	<resultMap type="Branch" id="branchMap">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="ab" property="ab"/>
+			<result column="position" property="position"/>
+			
+					
+	</resultMap>
+	
+
+	
+	<select id="selectCurrentPgaeBranchLabels" resultMap="branchMap">
+		select id,name,ab,position 
+		from branch
+	</select>
+	
+		<delete id="deleteById">
+		delete from branch where id=#{id}
+	</delete>
+	
+	<update id="updateNewsLabel">
+		update branch
+		set name=#{name},ab=#{ab},position=#{position}
+		where id=#{id}
+	</update>
+	
+	<select id="selectNewsLabelById" resultMap="branchMap">
+		select id,name,ab,position 
+		from branch
+		where id=#{id}
+	</select>
+	
+	<insert id="insertNewsLabel">
+		insert into branch(name,ab,position )
+		values( #{name}, #{ab},#{position})
+	</insert>
+	
+	
+	
+	
+</mapper>
