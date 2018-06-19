@@ -16,5 +16,5 @@
 	</bean>
 	
 	<!-- 注册属性文件 -->
-	<context:property-placeholder location="classpath:resources/jdbc.properties"/>
+	<context:property-placeholder location="classpath:jdbc.properties"/>
 </beans>
